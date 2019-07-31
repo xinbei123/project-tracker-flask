@@ -28,6 +28,7 @@ def get_student_by_github(github):
         FROM students
         WHERE github = :github
         """
+    connect_to_db(app)
 
     db_cursor = db.session.execute(QUERY, {'github': github})
 
