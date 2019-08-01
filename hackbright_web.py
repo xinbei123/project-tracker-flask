@@ -16,7 +16,7 @@ def get_student():
     first, last, github = hackbright.get_student_by_github(github)
 
     rows = hackbright.get_grades_by_github(github)
-    
+
     html = render_template("student_info.html",
                            first=first,
                            last=last,
@@ -46,6 +46,19 @@ def form_results():
 
     return render_template("form_results.html", 
                             first=first, last=last, github=github)
+
+
+@app.route("/project")
+def project():
+
+    title = request.args.get('title')
+
+    title, description, max_grade = hackbright.get_project_by_title(title)
+
+    return render_template("get_project.html", 
+                           title=title, 
+                           description=description,
+                           max_grade=max_grade)
 
 
 if __name__ == "__main__":
