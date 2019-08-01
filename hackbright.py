@@ -132,6 +132,7 @@ def get_grades_by_github(github):
     return rows
 
 
+
 def get_grades_by_title(title):
     """Get a list of all student grades for a project by its title"""
 
